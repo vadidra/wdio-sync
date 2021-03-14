@@ -1,9 +1,7 @@
-import App from '../page-object-model/App';
-
 describe('E2E - Feedback', () => {
 	it('Should load feedback form', () => {
-		App.openHomePage();
-        $('#feedback').waitForExist()
+		browser.url('http://zero.webappsecurity.com/index.html')
+		$('#feedback').waitForExist()
 		$('#feedback').click()
 		$('form').waitForExist()
 	})

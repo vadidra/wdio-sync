@@ -1,30 +1,25 @@
-import App from '../page-object-model/App'
-import LoginPage from '../page-object-model/pages/LoginPage'
-
 describe('E2E Tests - Login / Logout Flow', () => {
     it('Should not login with invalid credentials', () => {
-        App.openHomePage();
+        browser.url('http://zero.webappsecurity.com/index.html')
         $('#signin_button').waitForExist()
         $('#signin_button').click()
-        LoginPage.pauseShort();
-        LoginPage.formIsVisible();
-        LoginPage.fillForm('invalid username','invalid password');
-        LoginPage.submitForm();
-
+        $('#login_form').waitForExist()
+        $('#user_login').setValue('invalid')
+        $('#user_password').setValue('invalid')
+        $('input[type="submit"]').click()
         const error = $('.alert-error')
         expect(error).toHaveText('Login and/or password are wrong.')
     })
 
     it('Should login with valid credentials', () => {
-        App.openHomePage();
+        browser.url('http://zero.webappsecurity.com/index.html')
         $('#signin_button').waitForExist()
         $('#signin_button').click()
-
-        LoginPage.formIsVisible();
-        LoginPage.fillForm('username','password');
-        LoginPage.submitForm();
-
-        $('.nav-tabs').waitForExist();
+        $('#login_form').waitForExist()
+        $('#user_login').setValue('username')
+        $('#user_password').setValue('password')
+        $('input[type="submit"]').click()
+        $('.nav-tabs').waitForExist()
     })
     
     it('Should logout from app', () => {
