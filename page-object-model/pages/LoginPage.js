@@ -18,6 +18,10 @@ class LoginPage extends Base{
         return $('input[type="submit"]');
     }
 
+    get error(){
+        return $('.alert-error');
+    }
+
     formIsVisible(){
         this.loginForm.waitForExist()
     }
