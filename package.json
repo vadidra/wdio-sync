@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js",
+    "start-jenkins-server": "java -jar jenkins.war -httpPort=8080 --enable-future-java"
   },
   "author": "",
   "license": "ISC",

@@ -8,6 +8,10 @@ class App {
         browser.url('http://zero.webappsecurity.com/login.html');
     }
 
+    openFeedbackPage(){
+        browser.url('http://zero.webappsecurity.com/feedback.html');
+    }
+
     logout(){
         browser.url('http://zero.webappsecurity.com/logout.html');
     }
