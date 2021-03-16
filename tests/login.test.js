@@ -1,8 +1,9 @@
 describe('E2E Tests - Login / Logout Flow', () => {
     it('Should not login with invalid credentials', () => {
         browser.url('http://zero.webappsecurity.com/index.html')
-        $('#signin_button').waitForExist()
-        $('#signin_button').click()
+        //$('#signin_button').waitForExist()
+        //$('#signin_button').click()
+        browser.waitAndClick('#signin_button')
         $('#login_form').waitForExist()
         $('#user_login').setValue('invalid')
         $('#user_password').setValue('invalid')
@@ -23,10 +24,12 @@ describe('E2E Tests - Login / Logout Flow', () => {
     })
     
     it('Should logout from app', () => {
-        $('.icon-user').waitForExist()
-        $('.icon-user').click()
-        $('#logout_link').waitForExist()
-        $('#logout_link').click()
+        //$('.icon-user').waitForExist()
+        //$('.icon-user').click()
+        browser.waitAndClick('.icon-user')
+        //$('#logout_link').waitForExist()
+        //$('#logout_link').click()
+        browser.waitAndClick('#logout_link')
         $('#pages-nav').waitForExist()
     })
 
